@@ -1,0 +1,33 @@
+/* ul {
+    border: 1px solid black;
+    list-style-type: upper-alpha;
+    list-style-position: inside;
+    list-style-image: url(/css_lists/list.jpeg);
+}
+ul li {
+     border: 1px solid red;
+} */
+ ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 10px;
+ }
+ /* ul li {
+    border-radius: 15px;
+    background-color: rgb(10, 138, 138);
+    transition: background-color 0.3s ease;
+ } */
+ ul li a{
+    display: inline-block;
+    background-color: rgb(10, 138, 138);
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 15px;
+ }
+
+ ul li a:hover{
+    background-color: rgb(5, 189, 189);
+    color: #fff;
+ }

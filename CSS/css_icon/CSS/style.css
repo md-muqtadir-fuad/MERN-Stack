@@ -1,0 +1,18 @@
+/* Custom Fonts */
+@font-face {
+    font-family: 'Rough Splash';
+    src: url('../fonts/new_font.ttf') format('truetype');
+}
+
+.header {
+    text-transform: uppercase;
+    font-family: 'Rough Splash'; /* Added fallback font */
+    font-size: 2em;
+    color: #333;
+}
+
+.para-1 {
+    font-family: "Edu VIC WA NT Hand", cursive;
+    font-size: 1.2em;
+    line-height: 1.5;
+}

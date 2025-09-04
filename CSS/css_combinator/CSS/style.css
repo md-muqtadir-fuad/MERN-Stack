@@ -1,0 +1,10 @@
+/* .parent p {
+  color: blue;
+} */
+/* .parent > p {
+  color: red;
+} */
+h1 ~ p {
+  color: green;
+}
+

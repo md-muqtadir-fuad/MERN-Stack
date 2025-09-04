@@ -1,0 +1,49 @@
+/* a:link {
+    text-decoration: none;
+    color: green;
+}
+a:visited{
+    color: grey !important;
+} 
+a:hover {
+    text-decoration: None;
+}
+a:active {
+    color: #f10e93;
+    text-decoration: None;
+} */
+
+a {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    background-color: teal;
+    background-image: linear-gradient(to right, #00c6ff, #0072ff);
+    color: white;
+    padding: 15px 15px;
+    margin-top: 100px;
+    /* margin-left: 100px; */
+    display: inline-block;
+    border-radius: 20px;
+    transition: all 0.3s ease;  
+}
+/* linear gradient dile somossa holo hover e transition time thik vabe kaj kore na */
+a:hover {
+    background-color: rgb(4, 94, 94);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+a.btn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
