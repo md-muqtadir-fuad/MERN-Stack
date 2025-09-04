@@ -1,0 +1,27 @@
+/* Universal Selector*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/*Tag Selector*/
+h1 {
+    color: #000;
+}
+/* button {
+    color: chocolate;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+} */
+
+/* class selector */
+.para {
+    color:rgb(241, 188, 14);
+}
+/* ID selector */
+#btn {
+    color: rgb(255, 20, 99);
+}
+/* Attribute selector */
+[href="yahoo.com"] {
+    color:cadetblue;
+}

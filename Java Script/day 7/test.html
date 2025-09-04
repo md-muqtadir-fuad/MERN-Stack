@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="love"></div>
+
+    <script>
+      const loveDiv = document.getElementById("love");
+      setInterval(() => {
+        const message = document.createElement("p");
+        message.textContent = "I love you ❤️";
+        loveDiv.appendChild(message);
+        window.scrollTo(0, document.body.scrollHeight); // Scroll down
+      }, 500); // Adds message every 500ms
+    </script>
+  </body>
+</html>

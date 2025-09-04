@@ -1,0 +1,10 @@
+h2 {
+    color: aquamarine;
+    font-family: 'Courier New', Courier, monospace;
+}
+.para {
+    color: blue;
+}
+.underline {
+    text-decoration: line-through;
+}
