@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Example</title>
+</head>
+<body>
+    <h1 id="title">Hello, World!</h1>
+    <button id="changeTextBtn">Change Text</button>
+    <div>
+        <p>This is a paragraph.</p>
+        <p>This is another paragraph.</p>
+    </div>
+</body>
+<script>
+   let para = document.querySelector('p');
+   console.log(para.textContent); // Logs the text of the first paragraph
+   para.textContent = "This text has been changed!";
+   para.style.color = "blue"; // Change text color to blue
+</script>
+</html>

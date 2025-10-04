@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Example</title>
+</head>
+<body>
+    <h1 id="demo">Original Content</h1>
+    <h1 id="mainTitle">Main Title</h1>
+    <h3 id="subTitle">Its a subtitle</h3>
+
+
+    <script>
+        let mainTitle = document.getElementsByTagName("h1");
+        console.log(mainTitle);
+        mainTitle[0].textContent = "Hello World!";
+        // for(let i= 0; i < mainTitle.length; i++){
+        //     mainTitle[i].style.color = "blue";
+        // }
+        // mainTitle.forEach(el => {
+        //     style.color = "blue";
+        // });
+        let subTitle = document.getElementById('subTitle');
+        subTitle.style.color = "red";
+        console.log(subTitle);
+    </script>
+</body>
+
+</html>
