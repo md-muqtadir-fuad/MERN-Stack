@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Selection Part 2</title>
+</head>
+
+<body>
+
+    <h2>Using querySelector and querySelectorAll</h2>
+    <p class="para">The <code>querySelector</code> method allows you to select the first element that matches a specified CSS
+        selector. For example:</p>
+    <pre><code>const firstParagraph = document.querySelector('p');</code></pre>
+    <p>This will select the first &lt;p&gt; element in the document.</p>
+    <p class="para">The <code>querySelectorAll</code> method returns a static NodeList of all elements that match the specified CSS
+        selector. For example:</p>
+    <pre><code>const allParagraphs = document.querySelectorAll('p');</code></pre>
+    <p>This will select all &lt;p&gt; elements in the document.</p>
+
+    <ul>
+        <li class="list_it">Paragraph 1</li>
+        <li class="list_it">Paragraph 2</li>
+        <li class="list_it">Paragraph 3</li>
+        <li class="list_it">Paragraph 4</li>
+        <li class="list_it">Paragraph 5</li>
+    </ul>
+
+    <script>
+        let para = document.getElementsByClassName("para");
+        console.log(para);
+        console.log(para[0]);
+        para[0].style.color = "red";
+        for (let i = 0; i <para.length; i++){
+            para[i].style.color = "blue";
+        }
+
+        let para2 = document.querySelectorAll(".para")
+        console.log(para2);
+        para2.forEach(el => {
+            el.style.color = "green";
+        });
+        //Query SElector all returns a node list
+        //Node list is similar to array but not exactly an array
+        //Node list has forEach method
+        //Node list does not have map, filter, reduce methods
+
+        let listItems = document.querySelectorAll("li");
+        listItems.forEach(el => {
+            el.style.color = "purple";
+        });
+        //background color - css
+        //backgroundColor - js
+        //text-align - css
+        //textAlign - js
+
+        let listItem = document.querySelector("li:nth-of-type(even)");
+        listItem.style.backgroundColor = "lightgrey";
+
+        //standart method to select elements; getElementById, getElementsByClassName, getElementsByTagName
+        //modern method to select elements; querySelector, querySelectorAll
+
+    </script>
+</body>
+</html>

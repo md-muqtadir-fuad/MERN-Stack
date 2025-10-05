@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM manipulation</title>
+</head>
+
+<body>
+    <div>
+        <h2>Using querySelector and querySelectorAll</h2>
+        <p class="para">The <code>querySelector</code> method allows you to select the first element that matches a
+            specified CSS
+            selector. For example:</p>
+        <pre><code>const firstParagraph = document.querySelector('p');</code></pre>
+        <p>This will select the first &lt;p&gt; element in the document.</p>
+        <p class="para">The <code>querySelectorAll</code> method returns a static NodeList of all elements that match
+            the specified CSS
+            selector. For example:</p>
+        <pre><code>const allParagraphs = document.querySelectorAll('p');</code></pre>
+        <p>This will select all &lt;p&gt; elements in the document.</p>
+    </div>
+    <ul>
+        <li class="list_it">Paragraph 1</li>
+        <li class="list_it">Paragraph 2</li>
+        <li class="list_it">Paragraph 3</li>
+        <li class="list_it">Paragraph 4</li>
+        <li class="list_it">Paragraph 5</li>
+    </ul>
+
+    <script>
+        //  let div = document.querySelector("div");
+        //  let childs = div.children;
+        //  childs[1].style.color = "red";
+        //  for (let i = 0; i < childs.length; i++){
+        //     childs[i].style.color = "blue";
+        //  }
+        let parent = document.querySelector("h2");
+        parent.parentElement.style.backgroundColor = "red";
+
+        let item = document.querySelector("li");
+        item.nextElementSibling.style.color = "blue";
+        item.nextElementSibling.nextElementSibling.style.color = "green";
+
+        let last = document.querySelector("li:last-child");
+        last.previousElementSibling.style.color = "purple"
+    </script>
+
+</html>
