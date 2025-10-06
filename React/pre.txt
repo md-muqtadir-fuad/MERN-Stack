@@ -1,0 +1,18 @@
+Important Topics to Cover in Javascript
+- Basic Programming
+- Reference Data Type
+- Functional Programming
+- OOP in Js
+- Asynchronous Programming
+- Basic DOM (for Frontend)
+Some Common Tools for Frontend Development
+- Package Manager (NPM, YARN)
+- Linter (ESLint, Prettier)
+- Bundler (Webpack, Snowpack, Parcel)
+Popular Options for Frontend Development
+- Raw Javascript!
+- React
+- Angular
+- Vue Js
+- Svelte
+- Solid JS
