@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM manipulation</title>
+    <style>
+        .myTitle {
+            color: blue;
+            display: inline;
+        }
+        .red {
+            color: #fff;
+            display: inline;
+            background-color: yellow;
+            padding: 10px;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+<h1 class="title">DOM Manipulation</h1>
+<button> click me</button>
+</body>
+<script>
+let title = document. querySelector("h1");
+let btn = document.querySelector("button");
+btn.addEventListener("click",function(){
+    title.classList.add("red");
+});
+title.title = "This is heading";
+</script>
+
+</html>

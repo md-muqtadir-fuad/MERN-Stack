@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM manipulation</title>
+    <style>
+        span {
+            color: blue;
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>DOM Manipulation</h1>
+    <button>Change The World</button>
+    <hr>
+    <form action="">
+        <label for="name">Name:</label>
+        <input type="text" placeholder="Enter Your Name" id="name">
+        <br>
+        <label  for="email">Email: </label>
+        <input type="email" placeholder="Enter Your Email" id="email">
+        <br>
+        <label for="range">Range</label>
+        <input type="range" id="range" min="0" max="100">
+        <br>
+        <label for="color">Select Color</label>
+        <input type="color" id="color">
+        <br>
+        <label for="date">Select Date</label>
+        <input type="date" id="date">
+        <br>
+        <label for="checkbox">have apple</label>
+        <input type="checkbox" id="checkbox">
+        <br>
+        <input type="submit" value="Submit">
+
+    </form>
+</body>
+<script>
+    let inputs = document.querySelectorAll("input");
+    let btn = document.querySelector("button");
+    let title = document.querySelector("h1");
+    btn.addEventListener("click", function(){
+        title.textContent = "Hello World";
+        title.style.color = "#fff";
+        title.style.backgroundColor = "black";
+    });
+
+    let form = document.querySelector("form");
+
+    form.addEventListener("submit", function(e){
+        e.preventDefault();
+        inputs.forEach(input => {
+            console.log(input.value);
+        });
+    });
+</script>
+
+</html>
