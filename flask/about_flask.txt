@@ -1,0 +1,5 @@
+1.Microweb Framework of Python.
+2. Not require a particular tool/lib
+3. No extra component included
+4. Third party libs can be added
+5.Quick & Easy to getting started
