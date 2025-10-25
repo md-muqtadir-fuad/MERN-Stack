@@ -3,3 +3,117 @@
 3. No extra component included
 4. Third party libs can be added
 5.Quick & Easy to getting started
+
+Request Response cycle
+1. Application and request context
+2. Request dispatching
+3. Response Object
+
+Big Picture:
+client-(request)-> flask server -(request object)-> View functions
+request object encapsulate http request
+when flast invokes a view function, it returns a response value as string; 
+in most cases this resonse is a string which is sent back as html to client
+
+Application & Request Context
+from flask import request
+@app.route()
+def index():
+user_agent = request.headers.get('User-Agent')
+return 'Your browser is []'.format(user_agent)
+
+ফ্লাস্ক কন্টেক্সট সম্পর্কে তথ্য
+ফ্লাস্ক ওয়েব অ্যাপ্লিকেশন ফ্রেমেওয়ার্কে অ্যাপ্লিকেশন এবং রিকোয়েস্ট কন্টেক্সট 
+(Application & Request Context) একটি গুরুত্বপূর্ণ ধারণা। এর মাধ্যমে 
+অ্যাপ্লিকেশন বিভিন্ন থ্রেডে নিরাপদে কাজ করতে পারে এবং প্রয়োজনীয় ডেটা 
+অ্যাক্সেস করতে পারে।
+
+request.headers: এটি একটি ডিকশনারি-সদৃশ অবজেক্ট যা ক্লায়েন্ট দ্বারা 
+প্রেরিত সমস্ত HTTP হেডার ধারণ করে।
+.get('User-Agent'): এই মেথডটি 'User-Agent' নামের হেডারটির মান 
+(value) সংগ্রহ করে। এই হেডারে ক্লায়েন্টের ব্রাউজার, অপারেটিং সিস্টেম 
+এবং সংস্করণ সম্পর্কিত তথ্য থাকে।
+ফলাফল: ফাংশনটি ব্রাউজারে "Your browser is [user_agent_string]" 
+বার্তাটি রিটার্ন করে, যেখানে user_agent_string হলো আপনার ব্রাউজারের 
+প্রকৃত ইউজার এজেন্ট স্ট্রিং।
+
+Application & Request Context
+In reality, the request cannot be a global variable because in
+multithreaded applications each thread needs a different 
+request object for its specific requests. Context achieve this
+by making several objects global within a thread without 
+interfering each other.
+
+Multi-processing in python
+Process
+Lock
+Queue
+Pool
+
+# ১. প্রসেস (Process)
+বিবরণ: Process ক্লাস একটি নতুন, স্বাধীন প্রসেস শুরু করার জন্য ব্যবহৃত হয়। 
+প্রতিটি প্রসেসের নিজস্ব মেমরি স্পেস এবং পাইথন ইন্টারপ্রেটার থাকে।
+ব্যবহার: multiprocessing.Process(target=function_name) ব্যবহার করে 
+একটি প্রসেস তৈরি করা হয় এবং .start() দিয়ে তা শুরু করা হয়। 
+# ২. লক (Lock)
+বিবরণ: যখন একাধিক প্রসেস একই শেয়ার করা রিসোর্স (যেমন, একটি সাধারণ
+ভেরিয়েবল) অ্যাক্সেস বা পরিবর্তন করার চেষ্টা করে, তখন ডেটা দূষণ (race 
+conditions) এড়াতে Lock বা সিনক্রোনাইজেশন আদিম (synchronization 
+primitive) ব্যবহার করা হয়。
+ব্যবহার: একটি প্রসেস .acquire() পদ্ধতি ব্যবহার করে লকটি অর্জন করে এবং 
+কাজ শেষ হলে .release() পদ্ধতি ব্যবহার করে লকটি ছেড়ে দেয়, যাতে অন্য 
+প্রসেস অ্যাক্সেস করতে পারে। 
+# ৩. কিউ (Queue)
+বিবরণ: Queue (কিউ) হলো একটি প্রসেস-নিরাপদ (process-safe), 
+ফার্স্ট-ইন-ফার্স্ট-আউট (FIFO) ডেটা কাঠামো যা বিভিন্ন প্রসেসের মধ্যে ডেটা বা 
+বার্তা আদান-প্রদানের জন্য ব্যবহৃত হয়।
+ব্যবহার: ডেটা কিউতে যুক্ত করতে .put(item) এবং কিউ থেকে ডেটা সরাতে 
+.get() পদ্ধতি ব্যবহার করা হয়। 
+# ৪. পুল (Pool)
+বিবরণ: Pool একটি নির্দিষ্ট সংখ্যক ওয়ার্কার প্রসেস পরিচালনা করে। যখন 
+আপনার কাছে একটি ফাংশনকে অনেকগুলো ভিন্ন ইনপুটে সমান্তরালে চালানোর 
+প্রয়োজন হয়, তখন এটি আদর্শ।
+ব্যবহার: এটি স্বয়ংক্রিয়ভাবে কাজগুলো উপলব্ধ প্রসেসরের মধ্যে বিতরণ করে 
+এবং ফলাফল সংগ্রহ করে, যেমন .map() পদ্ধতির মাধ্যমে।
+
+Context
+application context
+- current_app
+-g
+request context
+-request
+-session
+
+Request Context
+This context is created for each HTTP request that comes into 
+your server. It includes:
+request: This object holds all the data from the incoming request.
+request.form: Data submitted from an HTML form (POST request).
+request.args: Data passed in the URL's query string (e.g., 
+/search?q=hello).
+request.method: The HTTP method used (e.g., 'GET', 'POST').
+request.files: Uploaded files.
+request.json: JSON data sent with the request.
+session: A dictionary-like object that lets you store information 
+specific to a user across multiple requests. This is how you 
+"remember" things, like who is logged in. Flask signs this 
+data and stores it in a client-side cookie.
+
+Application Context
+This context is more about the application itself.
+
+current_app: A proxy object that points to the Flask 
+application instance that is currently handling the 
+request. This is useful for accessing app-level 
+configurations (e.g., current_app.config['DATABASE_URI']) 
+or extensions (like a database connection) without 
+having to import the app object directly in all your files.
+
+g: Stands for "global," but it's not a true global 
+variable. It's a simple object that is unique for each 
+request. You can use it as a temporary storage space 
+to hold data during the lifecycle of a single request. 
+For example, you might store the logged-in user object 
+on g.user at the beginning of a request so other 
+functions called during that same request can access 
+it easily. It is reset after every request.
